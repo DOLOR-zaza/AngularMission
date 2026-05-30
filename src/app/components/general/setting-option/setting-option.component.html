@@ -1,0 +1,27 @@
+<!-- Aaron Esteban Tellez Zamudio -->
+<!-- Componente visual reutilizable para mostrar una opción de configuración. -->
+<!-- Usa Angular Material para el ícono y el switch, y Tailwind para los estilos. -->
+
+<div class="flex items-center justify-between gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:shadow-md transition">
+  <div class="flex items-center gap-4">
+    <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-700">
+      <mat-icon>{{ icon }}</mat-icon>
+    </div>
+
+    <div>
+      <h3 class="text-base font-semibold text-slate-900">
+        {{ title }}
+      </h3>
+
+      <p class="text-sm text-slate-500">
+        {{ description }}
+      </p>
+    </div>
+  </div>
+
+<!-- Switch de Angular Material que dispara el Output cuando cambia su estado. -->
+<mat-slide-toggle
+  [checked]="enabled"
+  (change)="onToggleChange($event.checked)">
+</mat-slide-toggle>
+</div>

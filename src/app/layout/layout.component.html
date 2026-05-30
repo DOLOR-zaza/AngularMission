@@ -1,0 +1,62 @@
+<div class="layout-toolbar">
+  <div class="layout-brand">
+    <mat-icon>book_5</mat-icon>
+    <h1>Library Backlog</h1>
+  </div>
+
+  <nav class="layout-nav">
+    <a
+      mat-button
+      routerLink="/home"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }">
+      My Backlog
+    </a>
+
+    <a
+      mat-button
+      routerLink="/explore"
+      routerLinkActive="active-link">
+      Explore
+    </a>
+
+    <a
+      mat-button
+      routerLink="/settings"
+      routerLinkActive="active-link">
+      Settings
+    </a>
+  </nav>
+
+  <div class="layout-profile">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="profileMenu"
+      class="profile-button"
+      aria-label="Open profile menu">
+      <img
+        src="assets/img/empty-user.png"
+        alt="User profile"
+        class="profile-image" />
+    </button>
+
+    <mat-menu #profileMenu="matMenu">
+      <div class="profile-info">
+        <h1>{{ loggedUser.name || 'User' }}</h1>
+        <span>{{ loggedUser.key }}</span>
+      </div>
+
+      @for (option of userOptions; track option.label) {
+        <button mat-menu-item>
+          <mat-icon>{{ option.icon }}</mat-icon>
+          <span>{{ option.label }}</span>
+        </button>
+      }
+    </mat-menu>
+  </div>
+</div>
+
+<div class="layout-content">
+  <router-outlet />
+</div>
+<!-- Aaron Esteban Tellez Zamudio-->

@@ -1,0 +1,54 @@
+<!-- Aaron Esteban Tellez Zamudio -->
+<!-- Página Settings desarrollada para la actividad de la plataforma. -->
+<!-- Aquí se reutiliza el componente app-setting-option y se le envían datos con Inputs. -->
+
+<section class="min-h-full bg-slate-50 p-6">
+  <div class="mx-auto max-w-5xl">
+    <div class="mb-6 flex items-center justify-between gap-4">
+      <div>
+        <div class="mb-2 flex items-center gap-2 text-blue-700">
+          <mat-icon>settings</mat-icon>
+          <span class="text-sm font-semibold uppercase tracking-wide">Settings</span>
+        </div>
+
+        <h1 class="text-3xl font-bold text-slate-900">
+          Application preferences
+        </h1>
+
+        <p class="mt-2 text-slate-600">
+          In this section, the user can manage basic options of the Library Backlog application.
+        </p>
+      </div>
+
+      <button mat-flat-button color="primary" (click)="resetSettings()">
+        <mat-icon>restart_alt</mat-icon>
+        Reset
+      </button>
+    </div>
+    
+<!-- Se recorre la lista de configuraciones y cada elemento se manda al componente hijo. -->
+
+    <div class="grid gap-4">
+      @for (setting of settings; track setting.id) {
+        <app-setting-option
+          [title]="setting.title"
+          [description]="setting.description"
+          [icon]="setting.icon"
+          [enabled]="setting.enabled"
+          (enabledChange)="onSettingChange(setting.id, $event)">
+        </app-setting-option>
+      }
+    </div>
+
+    <div class="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-4 text-blue-900">
+      <div class="flex items-center gap-2">
+        <mat-icon>info</mat-icon>
+        <strong>Last action:</strong>
+      </div>
+
+      <p class="mt-2">
+        {{ lastChange }}
+      </p>
+    </div>
+  </div>
+</section>

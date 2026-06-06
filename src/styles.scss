@@ -1,5 +1,7 @@
 @use '@angular/material' as mat;
+
 @import "tailwindcss";
+@import "ngx-toastr/toastr";
 
 html {
   @include mat.theme((
@@ -22,4 +24,3 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-

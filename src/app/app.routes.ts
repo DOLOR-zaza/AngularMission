@@ -9,16 +9,23 @@ import { ExploreComponent } from './pages/explore/explore.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './pages/login/login.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [authGuard], // Aquí se podrían agregar guards de autenticación
     children: [
       {
         path: 'home',

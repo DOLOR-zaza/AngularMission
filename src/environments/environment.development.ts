@@ -1,8 +1,8 @@
 import IEnvironment from './environments.interface';
 
 export const environment: IEnvironment = {
-  userId: '2df844f1-d758-46fb-8747-7a9c4d90f3c4',
-  apiId: 12467,
-  apiKey: 'pro_7e5ee3bbf7d50ed5285691f1753f21dc945759bc276aa8d76ed97b31eb5ab17f',
+  userId: '58884b08-863a-48e2-b7f9-21cc760d3ad8',
+  apiId: 27600,
+  apiKey: 'pro_654fc26d3c1fc88b3a968ba0573da24bb9e3dcb193767cf84bcd1a45eafbdbfa',
   apiUrl: 'https://reqres.in/api',
 };

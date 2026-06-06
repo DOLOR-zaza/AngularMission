@@ -110,12 +110,22 @@ export class ExploreComponent implements OnInit, AfterViewInit {
   }
 
   public createBook() {
-    //TODO
-  }
+  this.dialog.open(BookFormComponent).afterClosed().subscribe(
+    (saved: boolean) => {
+      if (saved != true) return;
+      this.loadBooks();
+    }
+  );
+}
 
   public updateBook(book: Book) {
-    //TODO
-  }
+  this.dialog.open(BookFormComponent, { data: book }).afterClosed().subscribe(
+    (saved: boolean) => {
+      if (saved != true) return;
+      this.loadBooks();
+    }
+  );
+}
 
   public deleteBook(book: Book) {
     this.dialog

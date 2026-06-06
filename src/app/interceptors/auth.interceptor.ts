@@ -24,13 +24,14 @@ export class AuthInterceptor implements HttpInterceptor {
     const requiredAuth: boolean = this.pathRequiredAuthentication(req.url);
 
     req = req.clone({
-      setHeaders: {
-        'x-API-Key': environment.apiKey,
-      },
-      setParams: {
-        project_id: environment.apiId.toString()
-      }
-    });
+    setHeaders: {
+    'x-api-key': environment.apiKey,
+    'X-Reqres-Env': 'prod',
+  },
+    setParams: {
+    project_id: environment.apiId.toString()
+  }
+});
 
     if (token && requiredAuth) {
       req = this.addToken(req, token);
